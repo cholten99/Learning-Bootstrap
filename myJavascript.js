@@ -24,14 +24,13 @@ function displayResults(data) {
     var word = "";
     for (var loop = 0; loop < tagArray.length; loop++) {
       word = tagArray[loop];
-      tagString += word.charAt(0).toUpperCase() + word.slice(1) + "&nbsp;";
+      tagString += "<a href='javascript:ajaxCallForTag(\"" + word + "\");'>" + word.charAt(0).toUpperCase() + word.slice(1) + "</a>&nbsp;";
     }
     resultsString += "<h4>" + tagString + "</h4>\n";
 
     resultsString += "<hr/>" + dataArray[i].Code + "<hr/>\n";
     
     var insideOnclick = "$(\"#display_" + i + "\").toggle(1000);";
-//    insideOnclick = "alert(\"Fish!\");";
     
     resultsString += "<button onclick='" + insideOnclick + "'>Show</button>\n";
     resultsString += "<div id='display_" + i + "' style='display:none;'><xmp>" + dataArray[i].Code + "</xmp></div>";
@@ -42,6 +41,12 @@ function displayResults(data) {
 
 }
 
+function ajaxCallForTag(tagValue) {
+  $('#autocomplete_textbox').val(tagValue);
+  $.get('backend.php', { Function: "GetExamples", Tag: tagValue }, function(data) {
+    displayResults(data);
+  });
+}
 // Initialisation function run on document load
 $(document).ready(function() {
 
@@ -62,11 +67,7 @@ $(document).ready(function() {
   $('#autocomplete_textbox').on('typeahead:selected', function(e) {
     e.preventDefault();
     var tagValue = $('#autocomplete_textbox').val();
-
-    $.get('backend.php', { Function: "GetExamples", Tag: tagValue }, function(data) {
-      displayResults(data);
-    });
-
+    ajaxCallForTag(tagValue);
   });
 
 });
