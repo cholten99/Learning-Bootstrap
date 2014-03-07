@@ -1,6 +1,6 @@
 <?php
 
-$con = new mysqli( $_SERVER["DB1_HOST"],  $_SERVER["DB1_USER"],
+$conn = new mysqli( $_SERVER["DB1_HOST"],  $_SERVER["DB1_USER"],
                       $_SERVER["DB1_PASS"], $_SERVER["DB1_NAME"],$_SERVER["DB1_PORT"]);
 
 // check connection

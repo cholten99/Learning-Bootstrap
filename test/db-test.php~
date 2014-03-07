@@ -1,8 +1,8 @@
 <?php
 
-$hostname = $_SERVER["DB1_HOST"].':'.$_SERVER["DB1_PORT"];
-$conn = mysqli_connect($hostname, $_SERVER["DB1_USER"], $_SERVER["DB1_PASS"], "Shayne");
- 
+$con = new mysqli( $_SERVER["DB1_HOST"],  $_SERVER["DB1_USER"],
+                      $_SERVER["DB1_PASS"], $_SERVER["DB1_NAME"],$_SERVER["DB1_PORT"]);
+
 // check connection
 if (mysqli_connect_errno()) {
   print('Database connection failed: '  . mysqli_connect_error() . "<br>");
