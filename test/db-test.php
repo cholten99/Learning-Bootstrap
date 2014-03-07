@@ -1,9 +1,5 @@
 <?php
 
-echo 'Current PHP version: ' . phpversion();
-
-/*
-
 $hostname = $_SERVER["DB1_HOST"].':'.$_SERVER["DB1_PORT"];
 $conn = mysqli_connect($hostname, $_SERVER["DB1_USER"], $_SERVER["DB1_PASS"], "Shayne");
  
@@ -27,7 +23,5 @@ while($row = $rs->fetch_assoc()) {
   echo "UID: " . $row['UID'] . '<br>';
   echo "Tag: " . $row['Tag'] . '<br>';
 }
-
-*/
 
 ?>
