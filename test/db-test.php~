@@ -13,7 +13,7 @@ $sql = 'SELECT * FROM tags';
 $rs = $conn->query($sql);
  
 if ($rs === false) {
-  print ('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+  print ('Wrong SQL: ' . $sql . ' Error: ' . $conn->error);
 } else {
   $rows_returned = $rs->num_rows;
 }
