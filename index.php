@@ -18,7 +18,7 @@ function getTags() {
     $rows_returned = $rs->num_rows;
   }
 
-  print "<select>\n";
+  print "<select id="tagSelect">\n";
 
   $rs->data_seek(0);
   while($row = $rs->fetch_assoc()) {
@@ -59,8 +59,9 @@ function getTags() {
       </div>
 
       <div class="tags">
-        <h2>Tags: <h2>
+        <h2>Tags:
         <?php getTags(); ?>
+        </h2>
       </div>
 
       <div id="results">

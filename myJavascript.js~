@@ -42,11 +42,11 @@ function displayResults(data) {
 }
 
 function ajaxCallForTag(tagValue) {
+  $('#autocomplete_textbox').val(tagValue);
   $.get('backend.php', { Function: "GetExamples", Tag: tagValue }, function(data) {
     displayResults(data);
   });
 }
-
 // Initialisation function run on document load
 $(document).ready(function() {
 
@@ -57,11 +57,17 @@ $(document).ready(function() {
     }
   });
 
-  // Event handler for select
-  $("#tagSelect").change(function() {
-    $value = $("#tagSelect").val();
-    ajaxCallForTag($value);
+  $('.tags .typeahead').typeahead({
+    name: 'tags',
+    ttl: -1,
+    prefetch: 'backend.php?Function=GetTags',
+    limit: 10
   });
 
+  $('#autocomplete_textbox').on('typeahead:selected', function(e) {
+    e.preventDefault();
+    var tagValue = $('#autocomplete_textbox').val();
+    ajaxCallForTag(tagValue);
+  });
 
 });
