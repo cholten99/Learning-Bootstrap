@@ -1,10 +1,9 @@
 <?php
 
 // Logging
-include "Logging.php";
-ClearLog();
+// include "Logging.php";
+// ClearLog();
 
-// MAIN - Call the appropriate function
 $function = "";
 if (empty($_GET['Function'])) {
   $function = $_POST['Function'];
