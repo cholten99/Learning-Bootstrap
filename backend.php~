@@ -21,10 +21,7 @@ print(json_encode($returnedArray));
 
 // Connect to the database
 function ConnectToDB() {
-
-  $mysqli = new mysqli( $_SERVER["DB1_HOST"], $_SERVER["DB1_USER"],
-                        $_SERVER["DB1_PASS"], $_SERVER["DB1_NAME"],$_SERVER["DB1_PORT"]);
-
+  $mysqli = new mysqli("localhost", "bowsy", "VU8Jc7ccirsre73", "bowsy_learning-bootstrap");
   if (mysqli_connect_errno()) {
     TestLog("Connect failed: %s\n", mysqli_connect_errno());
     exit();
