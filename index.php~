@@ -20,7 +20,7 @@ function getTags() {
 
   print "<select id='tagSelect'>\n";
 
-  $rs->data_seek(0);
+  $rs->data_seek(1);
   while($row = $rs->fetch_assoc()) {
     echo "<option value='" . $row['Tag'] . "'>" . $row['Tag'] . "</option>\n";
   }

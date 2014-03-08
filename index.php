@@ -63,6 +63,7 @@ function getTags() {
         <?php getTags(); ?>
         </h2>
       </div>
+      <hr/>
 
       <div id="results">
 
