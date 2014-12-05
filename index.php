@@ -1,7 +1,12 @@
 <?php
 
 function getTags() {
-  $conn = new mysqli( $_SERVER["DB1_HOST"],  $_SERVER["DB1_USER"], $_SERVER["DB1_PASS"], $_SERVER["DB1_NAME"],$_SERVER["DB1_PORT"]);
+
+  $user = getenv("DB1_USER");
+  $pass = getenv("DB1_PASS");
+
+  $mysqli = new mysqli("localhost", $user, $pass);
+  $mysqli->select_db("bowsy_learning-bootstrap");
 
   // check connection
   if (mysqli_connect_errno()) {
