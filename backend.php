@@ -1,8 +1,10 @@
 <?php
 
 // Logging
-// include "Logging.php";
-// ClearLog();
+include "Logging.php";
+ClearLog();
+
+TestLog("Testy test");
 
 $function = "";
 if (empty($_GET['Function'])) {

@@ -1,16 +1,19 @@
 <?php
 
+// include "Logging.php";
+// ClearLog();
+
 function getTags() {
 
   $user = getenv("DB1_USER");
   $pass = getenv("DB1_PASS");
 
-  $mysqli = new mysqli("localhost", $user, $pass);
-  $mysqli->select_db("bowsy_learning-bootstrap");
+  $conn = new mysqli("localhost", $user, $pass);
+  $conn->select_db("bowsy_learning-bootstrap");
 
   // check connection
   if (mysqli_connect_errno()) {
-    print('Database connection failed: '  . mysqli_connect_error() . "<br>");
+    TestLog('Database connection failed: '  . mysqli_connect_error() . "<br>");
   }
 
   $sql = 'SELECT DISTINCT Tag FROM tags ORDER BY Tag';
